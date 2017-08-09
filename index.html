@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="asset/stylesheet/style.css">
+</head>
+<body bgcolor="pink">
+<h1>CALCULATOR</h1>
+<div class="calculator">
+	<input type="text" id="display">
+	
+	<div class="row">
+		<button onclick="selectAndDisplay(event)" value="1">1</button>
+		<button onclick="selectAndDisplay(event)" value="2">2</button>
+		<button onclick="selectAndDisplay(event)" value="3">3</button>
+	</div>
+	<div class="row">
+		<button onclick="selectAndDisplay(event)" value="4">4</button>
+		<button onclick="selectAndDisplay(event)" value="5">5</button>
+		<button onclick="selectAndDisplay(event)" value="6">6</button>
+	</div>
+	<div class="row">
+		<button onclick="selectAndDisplay(event)" value="7">7</button>
+		<button onclick="selectAndDisplay(event)" value="8">8</button>
+		<button onclick="selectAndDisplay(event)" value="9">9</button>
+	</div>
+	<div class="row">
+		<button onclick="onAdd(event)" value="+">+</button>
+		<button onclick="onSub(event)" value="-">-</button>
+		<button onclick="onEnter(event)" value="=">=</button>
+	</div>
+	<div class="row">
+		<button onclick="onmul(event)" value="*">*</button>
+		<button onclick="ondivide(event)" value="/">/</button>
+		<button onclick="clearDisplay(event)" value="clear">C</button>
+	</div>
+	
+
+</div>
+<script type="text/javascript">
+	var firstvalue;
+	var operation;
+	var sec;
+	var result;
+         function selectAndDisplay(e){
+         	var val=e.currentTarget.value;
+         	var display=document.getElementById("display");
+         	display.value=display.value+val;
+         }
+         function clearDisplay(){
+         	document.getElementById('display').value='';
+         }
+         function onAdd(e){
+         firstvalue = document.getElementById('display').value;
+         	clearDisplay();
+         	operation="add";
+         }
+ 		function onSub(e){
+         firstvalue = document.getElementById('display').value;
+         	clearDisplay();
+         	operation="sub";
+         }
+         function onmul(e){    
+         	firstvalue = document.getElementById('display').value;
+         	clearDisplay();
+         	operation="mul";
+         }
+         function ondivide(e){
+         	firstvalue = document.getElementById('display').value;
+         	clearDisplay();
+         	operation="div";
+         }
+		function onEnter(event){
+	sec = document.getElementById('display').value;
+	switch(operation){
+		case'add':
+		result =Number(firstvalue) + Number(sec);
+	var display=document.getElementById("display");
+         	display.value=result;
+         	firstvalue='';
+		break;
+		case'sub':
+		result =Number(firstvalue) - Number(sec);
+	var display=document.getElementById("display");
+         	display.value=result;
+         	firstvalue='';
+		break;
+		case'mul':
+		result = Number(firstvalue)*Number(sec);
+		var display = document.getElementById('display');
+		display.value=result;
+		firstvalue='1';
+		break;
+		case'div':
+		result = Number(firstvalue)/Number(sec);
+		var display = document.getElementById('display');
+		display.value=result;
+		firstvalue='';
+		break;
+		default:
+		break;
+	}
+     
+      
+}
+	</script>
+</body>
+</html>
